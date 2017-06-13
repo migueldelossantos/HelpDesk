@@ -1,8 +1,33 @@
 <?php
-	session_start();
-	if(!isset($_SESSION['user'])){
-		header("Location: index.php");
+
+	$mysqli=new mysqli("localhost","root","","help"); 
+	if(mysqli_connect_errno()){
+		echo 'Conexion Fallida : ', mysqli_connect_error();
+		exit();
 	}
+
+
+	session_start();
+
+	//$_SESSION['user'] = "Jorge";
+
+
+  	if(!isset($_SESSION['user'])){
+  		header('Location: ../index.php');
+  	}
+
+  	$user = $_SESSION['user'];
+  	//echo $user;
+
+
+  	$query = "SELECT * FROM users WHERE user = '".$user."';";
+	$consulta = $mysqli->query($query);
+	$row = $consulta->fetch_assoc();
+	$privilegio = $row['privilege'];
+
+   
+
+  	
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -22,12 +47,18 @@
 			<h5>Menú</h5>
 		</div>
 		<div id="logo-help" class="col s3">
-			<a href="logout.php"><div id="session">Cerrar Seción <i class="small material-icons">power_settings_new</i></div></a>
+			<a href="logout.php"><div id="session">Cerrar Sesión <i class="small material-icons">power_settings_new</i></div></a>
 			<a href="menu.php"><img src="../img/Help.png"><h5>Help Desk</h5></a>
 		</div>
 	</nav>
 	<div class="container">
-		
+		<div class="right-align">
+	      	<div class="chip">
+		    	<img src="../img/usr.png" alt="Contact Person">
+		   		<?php echo $row['name']; ?>
+		  	</div>
+	  	</div>
+
 	 <div class="row">
 		<div id="cuadro" class="row col s12">
 			<div class="row s12">
@@ -43,11 +74,24 @@
 				</a>
 			</div>
 			<div class="row s12">
+				<?php if($privilegio == 1 || $privilegio == 2){?>
+
 				<a href="nuevo-reporte.php">
 					<div class="center-align yellow darken-4 button-menu">
-						<img src="../img/AltaReporte.png"><h5>Generar Reporte Reporte</h5>
+						<img src="../img/AltaReporte.png"><h5>Nuevo Reporte</h5>
 					</div>
 				</a>
+				<?php } ?>
+
+				<?php if($privilegio == 0){?>
+
+				<a href="usuarios.php">
+					<div class="center-align yellow darken-4 button-menu">
+						<img src="../img/user-group-icon.png"><h5>Usuarios</h5>
+					</div>
+				</a>
+				<?php } ?>
+
 				<a href="reportes-admin.php">
 					<div class="center-align yellow darken-4 button-menu">
 						<img src="../img/report.png"><h5>Lista de Reportes</h5>

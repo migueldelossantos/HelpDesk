@@ -129,9 +129,12 @@ footer{
 }
 
 #acceso{
-	padding: 5%;
 	border: 1px solid rgb(200,200,200);
 	border-radius: 5%;
+}
+
+#acceso>div{
+	margin: 3% 10%;
 }
 
 .row{

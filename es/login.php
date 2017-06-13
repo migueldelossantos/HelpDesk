@@ -3,7 +3,7 @@
 	$password = $_POST['password'];
 
 	$mysqli = new mysqli('localhost','root','','help');
-	$sql = "SELECT * FROM users WHERE user='".$user."';";
+	$sql = "SELECT * FROM users WHERE user='".$user."' and password='".$password."';";
 
 	$result = $mysqli->query($sql);
 	if($result->num_rows == 1) {

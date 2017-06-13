@@ -1,3 +1,13 @@
+<?php 
+	session_start();
+	if(!isset($_SESSION['user'])){
+		header("Location: index.php");
+	}
+
+	$mysqli = new mysqli('localhost','root','','help');
+	$sql = "SELECT * FROM reportes;";
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -89,60 +99,6 @@
 		        </thead>
 
 		        <tbody>
-		          <tr>
-		            <td>0001</td>
-		            <td>26/04/2017</td>
-		            <td>Reparación de Equipo</td>
-		            <td>0113010008</td>
-		            <td>Reparación de Hardware</td>
-		            <td>Pendiente</td>
-		            <td><a href="#modal2"><i class="material-icons">mode_edit</i></a><a href="#modal1"><i class="material-icons">delete</i></a></td>
-		          </tr>
-		          <tr>
-		            <td>0001</td>
-		            <td>26/04/2017</td>
-		            <td>Reparación de Equipo</td>
-		            <td>0113010008</td>
-		            <td>Reparación de Hardware</td>
-		            <td>Pendiente</td>
-		            <td><a href="#modal2"><i class="material-icons">mode_edit</i></a><a href="#modal1"><i class="material-icons">delete</i></a></td>
-		          </tr>
-		          <tr>
-		            <td>0001</td>
-		            <td>26/04/2017</td>
-		            <td>Reparación de Equipo</td>
-		            <td>0113010008</td>
-		            <td>Reparación de Hardware</td>
-		            <td>Pendiente</td>
-		            <td><a href="#modal2"><i class="material-icons">mode_edit</i></a><a href="#modal1"><i class="material-icons">delete</i></a></td>
-		          </tr>
-		          <tr>
-		            <td>0001</td>
-		            <td>26/04/2017</td>
-		            <td>Reparación de Equipo</td>
-		            <td>0113010008</td>
-		            <td>Reparación de Hardware</td>
-		            <td>Pendiente</td>
-		            <td><a href="#modal2"><i class="material-icons">mode_edit</i></a><a href="#modal1"><i class="material-icons">delete</i></a></td>
-		          </tr>
-		          <tr>
-		            <td>0001</td>
-		            <td>26/04/2017</td>
-		            <td>Reparación de Equipo</td>
-		            <td>0113010008</td>
-		            <td>Reparación de Hardware</td>
-		            <td>Pendiente</td>
-		            <td><a href="#modal2"><i class="material-icons">mode_edit</i></a><a href="#modal1"><i class="material-icons">delete</i></a></td>
-		          </tr>
-		          <tr>
-		            <td>0001</td>
-		            <td>26/04/2017</td>
-		            <td>Reparación de Equipo</td>
-		            <td>0113010008</td>
-		            <td>Reparación de Hardware</td>
-		            <td>Pendiente</td>
-		            <td><a href="#modal2"><i class="material-icons">mode_edit</i></a><a href="#modal1"><i class="material-icons">delete</i></a></td>
-		          </tr>
 		          <tr>
 		            <td>0001</td>
 		            <td>26/04/2017</td>

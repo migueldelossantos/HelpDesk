@@ -31,9 +31,11 @@
 			<a href="../en/index.php"><img src="../img/us.png"></a>
 		</div>
 		<div class="row">
-			<div class="col s3 section">
-				<h5>Lorem ipsum</h5>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+			<div class="col s3 section left align">
+				<h6>Plataformas Virtuales</h6>					
+				<a href=""><i class="tiny material-icons">perm_identity</i> Kabl</a>
+				<br>
+				<a href=""><i class="tiny material-icons">perm_identity</i> Aula Virtual</a>
 			</div>
 			<div class="col s4 offset-s1">
 				<form id="acceso" class="grey lighten-4" method="post">
@@ -46,39 +48,43 @@
 						<input type="password"  id="password" placeholder="Contraseña" required>
 					</div>
 					<div class="center-align">
-						<input type="submit" class="btn" value="Enviar">
+						<input type="submit" class="btn" value="Entrar">
 					</div>
 				</form>	
 			</div>
 			<div class="col s3 offset-s1 section">
-				<h5>Lorem ipsum</h5>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+				<h5>Anuncio</h5>
+				<ul>
+					<li></li>
+				</ul>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col s4 section">
 				<i class="medium material-icons">call</i>
-				<p>Vice-Rectoría de Relaciones y Recursos</p>
+				<p>Departamento de Servicios Escolares</p>
 				<p>Teléfono:</p>
-				<p>(55) 4623 7562</p>
-				<p>Fax:</p>
-				<p>(55) 5575 1365</p>
+				<p>(951) 501 72 00</p>
+				<p>(951) 501 72 07</p>
+				<p>(951) 501 72 08</p>
+				<p>Correo electrónico:</p>
+				<p>escolares@jacinto.novauniversitas.edu.mx</p>
 			</div>
 			<div class="col s4 section">
 				<i class="medium material-icons">call</i>
-				<p>Vice-Rectoría de Relaciones y Recursos</p>
+				<p>Jefe del Departamento de Red</p>
+				<p>C. Jorge Luis Reyes Martínez</p>
 				<p>Teléfono:</p>
 				<p>(55) 4623 7562</p>
-				<p>Fax:</p>
-				<p>(55) 5575 1365</p>
+				<p>Correo electrónico:</p>
+				<p>jorge@jacinto.novauniversitas.edu.mx</p>
 			</div>
 			<div class="col s4 section">
 				<i class="medium material-icons">call</i>
-				<p>Vice-Rectoría de Relaciones y Recursos</p>
-				<p>Teléfono:</p>
-				<p>(55) 4623 7562</p>
-				<p>Fax:</p>
-				<p>(55) 5575 1365</p>
+				<p>Jefe del Departamento de Multimedios</p>
+				<p>C. Miguel Angel García Reyes</p>
+				<p>correo electrónico:</p>
+				<p>mgarcia@jacinto.novauniversitas.edu.mx</p>
 			</div>
 		</div>
 	</div>

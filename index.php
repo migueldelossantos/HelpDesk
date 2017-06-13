@@ -1,3 +1,6 @@
+<?php 
+	header("Location: es/index.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
