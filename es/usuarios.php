@@ -34,6 +34,16 @@
       <link rel="stylesheet" type="text/css" href="../css/style.css">
       <link rel="stylesheet" type="text/css" href="../css/materializeIcons.css" media="screen,projection">
 </head>
+
+	<style type="text/css">
+	thead, tbody { display: block; }
+
+ 	tbody {
+	    height: 500px;
+	    overflow-y: auto;
+	    overflow-x: hidden;
+	}
+	</style>
 <body>
 	<nav class="orange darken-4 row">
 		<div id="logo-nova" class="col s3">
@@ -55,6 +65,8 @@
 	<div class="container">
 		<h3 class="center-align">Usuarios</h3>
 
+
+
 		<div class="right-align">
 	      	<div class="chip">
 		    	<img src="../img/usr.png" alt="Contact Person">
@@ -62,10 +74,26 @@
 		  	</div>
 	  	</div>
 
-		<div class="col s6 offset-s3 card-panel">
-			  <div class="col s6">
+	  		<div class="col s6">
                 <a onclick="agregar();" class="waves-effect waves-light btn red"><i class="material-icons left">add</i>Agregar Nuevo Usuario</a>
-              </div>
+            </div>
+
+		<div class="col s6 offset-s3 card-panel">
+
+
+
+              
+             <div class="row col s12 offset-s0">
+              	<div class="input-field col s5 offset-s1">
+		          <input id="buscar_Usuario" onKeyUp="buscar_Usuario();" placeholder="_Buscar_" id="first_name" type="text" class="validate">
+		          <label for="first_name">Usuario o Matricula</label>
+		        </div>
+
+                <div class="input-field col s5 offset-s1">
+		          <input id="buscar_Nombre" onKeyUp="buscar_Nombre();" placeholder="_Buscar_" id="first_name" type="text" class="validate">
+		          <label for="first_name">Nombre</label>
+		        </div> 
+            </div>
 
 		    <div class="col s12 offset-s0 card-panel">
               <!-- Grey navigation panel -->
@@ -75,8 +103,8 @@
                       <thead>
                         <tr class="red">
                             <th data-field="id" class="center-align" style="width:10%;">Id</th>
-                            <th data-field="name" class="center-align" style="width:20%;">Usuario</th>
-                            <th data-field="price" class="center-align" style="width:20%;">Nombre</th>
+                            <th data-field="name" class="center-align" style="width:30%;">Usuario</th>
+                            <th data-field="price" class="center-align" style="width:34%;">Nombre</th>
                             <th data-field="price" class="center-align" style="width:10%;">Privilegio</th>
                             <th data-field="price" class="center-align" style="width:10%;">Modificar</th>
                             <th data-field="price" class="center-align" style="width:10%;">Eliminar</th>
@@ -351,7 +379,29 @@
 		function cerrarM(){
 			$('#modal2').modal('close');
 		}
+//////////////buscadores
 
+		function buscar_Usuario(){
+			document.getElementById("buscar_Nombre").value = "";
+			var aux = document.getElementById("buscar_Usuario").value;
+			var mtrc = '<?php echo $row['user']; ?>';
+			$.post("../registerUsuarios.php",{imprimirUsuario: aux, noUsuario: mtrc }, function(mensaje){
+				$("#tablas").html(mensaje);
+				console.log(mensaje);
+	        });
+
+		}
+
+		function buscar_Nombre(){	
+			document.getElementById("buscar_Usuario").value = "";
+			var aux = document.getElementById("buscar_Nombre").value;
+			var mtrc = '<?php echo $row['user']; ?>';
+			$.post("../registerUsuarios.php",{imprimirNombre: aux, noUsuario: mtrc }, function(mensaje){
+				$("#tablas").html(mensaje);
+				
+	        });
+
+		}
 
 
 
