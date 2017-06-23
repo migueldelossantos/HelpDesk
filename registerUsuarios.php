@@ -75,9 +75,19 @@
 		$PrivilegioM = $_POST['PrivilegioM'];
 		$PrivilegioM = str_replace($caracteres_malos, $caracteres_buenos, $PrivilegioM);
 	}
-		if(isset($_POST['restablecerM'])){
+	if(isset($_POST['restablecerM'])){
 		$restablecerM = $_POST['restablecerM'];
 		$restablecerM = str_replace($caracteres_malos, $caracteres_buenos, $restablecerM);
+	}
+
+
+	if(isset($_POST['imprimirUsuario'])){
+		$imprimirUsuario = $_POST['imprimirUsuario'];
+		$imprimirUsuario = str_replace($caracteres_malos, $caracteres_buenos, $imprimirUsuario);
+	}
+	if(isset($_POST['imprimirNombre'])){
+		$imprimirNombre = $_POST['imprimirNombre'];
+		$imprimirNombre = str_replace($caracteres_malos, $caracteres_buenos, $imprimirNombre);
 	}
 	
 
@@ -205,6 +215,95 @@ if (isset($VerificarUsuario)){
 
 		//$mensaje = $restablecerM;
 
+
+
+	};
+
+
+	//Buscadores
+	if (isset($imprimirUsuario)){
+
+		//$mensaje = "entra";$query = "SELECT * FROM preguntas WHERE pregunta LIKE '%$buscador%';";
+
+		$query = "SELECT * FROM users WHERE user LIKE '%$imprimirUsuario%';";
+		$consulta = $mysqli->query($query);
+									//$row = $consulta->fetch_assoc();
+		
+		//Obtiene la cantidad de filas que hay en la consulta
+		$filas = $mysqli->affected_rows;
+
+		//Si no existe ninguna fila que sea igual a $consultaBusqueda, entonces mostramos el siguiente mensaje
+		if ($filas === 0) {
+			//$mensaje = "hola";
+			$mensaje = "Ningun Elemento";
+		}else{
+
+					while($row = $consulta->fetch_assoc()){
+
+						$auxz = "";
+						if($row['privilege'] == 0){
+						 $auxz =  "disabled"; 
+						}
+
+
+						if($noUsuario != $row['user']){
+
+							$mensaje.= '<tr>
+			                    <td class="center-align" style="width:10%;">'.$row['id'].'</td>
+			                    <td class="center-align" style="width:30%;">'.$row['user'].'</td>
+			                    <td class="center-align" style="width:34%;">'.$row['name'].'</td>
+			                    <td class="center-align" style="width:10%;">'.$row['privilege'].'</td>
+			                    <td style="width:10%;"><a class="btn-floating  waves-effect waves-light green"
+			                     data-position="bottom" data-delay="50" data-tooltip="Modificar Producto" onclick="modificarM('.$row['id'].')"><i class="material-icons">mode_edit</i></a></td>
+			                    <td style="width:10%;"><a class="btn-floating waves-effect waves-light red darken-2 '.$auxz.'" data-position="bottom" data-delay="50" data-tooltip="Eliminar Producto" onclick="eliminar('.$row['id'].')"><i class="material-icons">delete</i></a></td>
+			                </tr>';
+	            		}
+					}
+		}
+
+
+	};
+
+
+	if (isset($imprimirNombre)){
+
+		//$mensaje = "entra";
+
+		$query = "SELECT * FROM users WHERE name LIKE '%$imprimirNombre%';";
+		$consulta = $mysqli->query($query);
+									//$row = $consulta->fetch_assoc();
+		
+		//Obtiene la cantidad de filas que hay en la consulta
+		$filas = $mysqli->affected_rows;
+
+		//Si no existe ninguna fila que sea igual a $consultaBusqueda, entonces mostramos el siguiente mensaje
+		if ($filas === 0){
+			//$mensaje = "hola";
+			$mensaje = "Ningun Elemento";
+		}else{
+
+					while($row = $consulta->fetch_assoc()){
+
+						$auxz = "";
+						if($row['privilege'] == 0){
+						 $auxz =  "disabled"; 
+						}
+
+
+						if($noUsuario != $row['user']){
+
+							$mensaje.= '<tr>
+			                    <td class="center-align" style="width:10%;">'.$row['id'].'</td>
+			                    <td class="center-align" style="width:30%;">'.$row['user'].'</td>
+			                    <td class="center-align" style="width:34%;">'.$row['name'].'</td>
+			                    <td class="center-align" style="width:10%;">'.$row['privilege'].'</td>
+			                    <td style="width:10%;"><a class="btn-floating  waves-effect waves-light green"
+			                     data-position="bottom" data-delay="50" data-tooltip="Modificar Producto" onclick="modificarM('.$row['id'].')"><i class="material-icons">mode_edit</i></a></td>
+			                    <td style="width:10%;"><a class="btn-floating waves-effect waves-light red darken-2 '.$auxz.'" data-position="bottom" data-delay="50" data-tooltip="Eliminar Producto" onclick="eliminar('.$row['id'].')"><i class="material-icons">delete</i></a></td>
+			                </tr>';
+	            		}
+					}
+		}
 
 
 	};
