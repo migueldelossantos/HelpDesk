@@ -89,6 +89,27 @@
 		$imprimirNombre = $_POST['imprimirNombre'];
 		$imprimirNombre = str_replace($caracteres_malos, $caracteres_buenos, $imprimirNombre);
 	}
+
+	///////////////////////, Contraseña  /////////////////////////////////////
+
+
+	if(isset($_POST['obtenerContrasenia'])){
+		$obtenerContrasenia = $_POST['obtenerContrasenia'];
+		$obtenerContrasenia = str_replace($caracteres_malos, $caracteres_buenos, $obtenerContrasenia);
+	}
+
+	if(isset($_POST['cambiarNuevaContras'])){
+		$cambiarNuevaContras = $_POST['cambiarNuevaContras'];
+		$cambiarNuevaContras = str_replace($caracteres_malos, $caracteres_buenos, $cambiarNuevaContras);
+	}
+
+	if(isset($_POST['identi'])){
+		$identi = $_POST['identi'];
+		$identi = str_replace($caracteres_malos, $caracteres_buenos, $identi);
+	}
+
+
+	/////////////////////////////////////////////////////////////
 	
 
 
@@ -307,6 +328,44 @@ if (isset($VerificarUsuario)){
 
 
 	};
+
+
+
+	////////////////////cambiar contraseña/////////////////////////////
+
+	if (isset($obtenerContrasenia)){
+
+
+		//$query = "SELECT * FROM users WHERE user = '".$VerificarUsuario."';";
+		$query = "SELECT * FROM users WHERE id = '".$obtenerContrasenia."';";
+		$consulta = $mysqli->query($query);
+									//$row = $consulta->fetch_assoc();
+		
+		//Obtiene la cantidad de filas que hay en la consulta
+		//$filas = $mysqli->affected_rows;
+
+		//Si no existe ninguna fila que sea igual a $consultaBusqueda, entonces mostramos el siguiente mensaje
+		$row = $consulta->fetch_assoc();
+
+						
+		$mensaje = $row['password'];
+
+	};
+
+
+
+
+	if (isset($cambiarNuevaContras)) {
+
+	
+			$mensaje = "ya";
+			$query = "UPDATE users SET password = '".$cambiarNuevaContras."' WHERE id = '".$identi."';";
+			$resultado = $mysqli->query($query);
+
+
+	};
+
+	//////////////////////////////////////////////////////////////////77
 	
 
 	
