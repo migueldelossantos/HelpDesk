@@ -183,6 +183,10 @@ a.btn-flat:hover{
 	opacity: 0.5;
 }
 
+#logo-nova img:hover{
+	transform: scale(1.1,1.1);
+}
+
 #logo-help img:hover{
 	transform: scale(1.1,1.1);
 }
@@ -192,4 +196,35 @@ a.btn-flat:hover{
 	height: 20px;
 	float: right;
 	margin: 1%;
+}
+
+.Pendiente{
+	padding: 5%;
+	background-color: yellow;
+	border-radius: 8px;
+}
+
+.Atendido{
+	padding: 5%;
+	background-color: green;
+	border-radius: 8px;	
+}
+
+.Rechazado{
+	padding: 5%;
+	background-color: red;
+	border-radius: 8px;
+}
+
+.picker__date-display{
+	background: #ffa000;
+	color: black;
+}
+
+.picker__weekday-display{
+	background: #ff6f00;	
+}
+
+.picker__year-display{
+	color: black;
 }

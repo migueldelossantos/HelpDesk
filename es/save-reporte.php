@@ -60,7 +60,7 @@ if ($tipoProblema == 1) {
 
 	$sql1 = "INSERT INTO reportes(id, fecha, asunto, usuario, id_tipo_problema, estado, view, descripcion, prioridad, hora) VALUES ('".$id."', '".$fecha."', '".$asunto."', '".$usuario."', '".$tipoProblema."', '".$estado."', '".$visto."', '".$descripcion."', '".$prioridad."', '".$hora."');";
 
-	$sql2= "INSERT INTO reports_solicitudes_equipo(id_report, equipo, fecha_uso, hora_uso, fecha_entrega, hora_entrega) VALUES ('".$id."', '".$tipoEquipo."', '".$fechaUso."', '".$horaUso.":00"."', '".$fechaEntrega."', '".$horaEntrega.":00"."');";
+	$sql2= "INSERT INTO reports_solicitudes_equipo(id_report, equipo, fecha_uso, hora_uso, fecha_entrega, hora_entrega) VALUES ('".$id."', '".$tipoEquipo."', '".$fechaUso."', '".$horaUso."', '".$fechaEntrega."', '".$horaEntrega."');";
 
 	$result = $mysqli->query($sql1);
 	if($result){
@@ -147,11 +147,11 @@ if ($tipoProblema == 1) {
 	$aula_departamento = $_POST['aula_departamento'];
 	$fechaFin = $_POST['fecha_fin'];
 	$horaFin = $_POST['hora_fin'];
-	$links = $_POST['lincks'];
+	$links = $_POST['links'];
 
 	$sql1 = "INSERT INTO reportes(id, fecha, asunto, usuario, id_tipo_problema, estado, view, descripcion, prioridad, hora) VALUES ('".$id."', '".$fecha."', '".$asunto."', '".$usuario."', '".$tipoProblema."', '".$estado."', '".$visto."', '".$descripcion."', '".$prioridad."', '".$hora."');";
 
-	$sql2= "INSERT INTO reports_restricciones_red(id_report, fecha_inicio, hora_inicio, fecha_fin, hora_fin, carrera, aula_departamento,links) VALUES ('".$id."', '".$fechaInicio."', '".$horaInicio.":00"."', '".$fechaFin."', '".$horaFin.":00"."', '".$carrera."', '".$aula_departamento."', '".$links."');";
+	$sql2= "INSERT INTO reports_restricciones_red(id_report, fecha_inicio, hora_inicio, fecha_fin, hora_fin, carrera, aula_departamento,links) VALUES ('".$id."', '".$fechaInicio."', '".$horaInicio."', '".$fechaFin."', '".$horaFin."', '".$carrera."', '".$aula_departamento."', '".$links."');";
 
 	$result = $mysqli->query($sql1);
 	if($result){
